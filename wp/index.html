@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSRONV| PREMIUM CHK</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --glow-cyan: #00f2ff;
+            --glow-pink: #ff00ea;
+            --bg-dark: #05050a;
+            --card-bg: rgba(15, 15, 25, 0.8);
+        }
+
+        body {
+            background: radial-gradient(circle at center, #101025 0%, #05050a 100%);
+            color: #e0e0e0;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
+            letter-spacing: 1px;
+        }
+
+        .neon-text {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 10px var(--glow-cyan), 0 0 20px var(--glow-cyan);
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .glass-card:hover {
+            border: 1px solid var(--glow-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        .form-control {
+            background: rgba(0, 0, 0, 0.5) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: var(--glow-cyan) !important;
+            font-family: monospace;
+            border-radius: 8px;
+        }
+
+        .form-control:focus {
+            border-color: var(--glow-cyan) !important;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+        }
+
+        .btn-cyber {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            padding: 10px 25px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-start {
+            background: transparent;
+            border: 2px solid var(--glow-cyan);
+            color: var(--glow-cyan);
+        }
+
+        .btn-start:hover {
+            background: var(--glow-cyan);
+            color: #000;
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        .btn-stop {
+            background: transparent;
+            border: 2px solid var(--glow-pink);
+            color: var(--glow-pink);
+        }
+
+        .btn-stop:hover {
+            background: var(--glow-pink);
+            color: #fff;
+            box-shadow: 0 0 20px var(--glow-pink);
+        }
+
+        .badge-custom {
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .text-success-neon { color: #39ff14; text-shadow: 0 0 5px #39ff14; }
+        .text-danger-neon { color: #ff3131; text-shadow: 0 0 5px #ff3131; }
+        .text-info-neon { color: var(--glow-cyan); text-shadow: 0 0 5px var(--glow-cyan); }
+
+        #bode, #bode2 {
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.85rem;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--glow-cyan); border-radius: 10px; }
+    </style>
+</head>
+
+<body>
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="neon-text">@VSRONV CHK</h1>
+        <p class="text-muted" style="letter-spacing: 5px;">ELITE CHECKER TERMINAL</p>
+    </div>
+    
+    <div class="mb-3">
+        <label class="small text-info-neon">PROXY CONFIG (IP:PORT or IP:PORT:USER:PASS)</label>
+        <input type="text" id="proxy_input" class="form-control" placeholder="USWest.knight-proxy.shop:7777:user:pass">
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="glass-card card">
+                <div class="card-header border-0 bg-transparent">
+                    <h5 class="mb-0"><i class="fas fa-microchip mr-2 text-info-neon"></i> DATA INPUT</h5>
+                </div>
+                <div class="card-body">
+                    <textarea id="lista" class="form-control mb-4" rows="8" placeholder="PASTE YOUR LIST HERE: CARD|MONTH|YEAR|CVV"></textarea>
+                    
+                    <div class="text-center">
+                        <button class="btn btn-cyber btn-start mx-2" id="testar" onclick="enviar()">
+                            <i class="fas fa-play mr-2"></i>Initialize
+                        </button>
+                        <button class="btn btn-cyber btn-stop mx-2">
+                            <i class="fas fa-power-off mr-2"></i>Abort
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="glass-card card">
+                <div class="card-header border-0 bg-transparent">
+                    <h5 class="mb-0"><i class="fas fa-satellite-dish mr-2 text-info-neon"></i> LIVE STATUS</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Gateway:</span>
+                        <span class="text-info-neon font-weight-bold">WORLDPAY [MERCH API]</span>
+                    </div>
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <div class="row text-center">
+                        <div class="col-6 mb-3">
+                            <small class="text-muted d-block">APPROVED</small>
+                            <span id="cLive" class="h4 text-success-neon">0</span>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <small class="text-muted d-block">DECLINED</small>
+                            <span id="cDie" class="h4 text-danger-neon">0</span>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted d-block">PROCESSED</small>
+                            <span id="total" class="h4 text-info-neon">0</span>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted d-block">TOTAL LOADED</small>
+                            <span id="carregadas" class="h4 text-white">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card card mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center bg-transparent border-0">
+            <h6 class="mb-0 text-success-neon font-weight-bold">
+                <i class="fas fa-check-circle mr-2"></i>SUCCESSFUL HITS - <span id="cLive2">0</span>
+            </h6>
+            <button id="mostra" class="btn btn-sm btn-outline-info">VIEW LOG</button>
+        </div>
+        <div class="card-body pt-0" id="bode">
+            <div class="aprovadas"></div>
+        </div>
+    </div>
+
+    <div class="glass-card card mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center bg-transparent border-0">
+            <h6 class="mb-0 text-danger-neon font-weight-bold">
+                <i class="fas fa-times-circle mr-2"></i>TERMINATED - <span id="cDie2">0</span>
+            </h6>
+            <button id="mostra2" class="btn btn-sm btn-outline-info">VIEW LOG</button>
+        </div>
+        <div class="card-body pt-0" id="bode2">
+            <div class="reprovadas"></div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-center py-4">
+    <small class="text-muted" style="letter-spacing: 2px;">&copy; 2026 - VSRONV </small>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+function enviar() {
+    var linha = $("#lista").val();
+    var proxy_val = $("#proxy_input").val(); // Capture the proxy input
+    var linhaenviar = linha.split("\n").filter(function(v){return v!==''});
+    var total = linhaenviar.length;
+    var ap = 0;
+    var rp = 0;
+    
+    $('#carregadas').html(total);
+
+    linhaenviar.forEach(function(value, index) {
+        setTimeout(function() {
+            $.ajax({
+                // Added &proxy= parameter to the URL
+                url: 'api.php?lista=' + encodeURIComponent(value) + '&proxy=' + encodeURIComponent(proxy_val),
+                type: 'GET',
+                success: function(resultado) {
+                    if (resultado.includes("#Authorized")) {
+                        ap++;
+                        $(".aprovadas").append('<div class="mb-1"><i class="fas fa-check text-success mr-2"></i>' + resultado + '</div>');
+                    } else {
+                        rp++;
+                        $(".reprovadas").append('<div class="mb-1 text-muted"><i class="fas fa-times text-danger mr-2"></i>' + resultado + '</div>');
+                    }
+                    
+                    var currentTotal = ap + rp;
+                    $('#cLive').html(ap);
+                    $('#cDie').html(rp);
+                    $('#total').html(currentTotal);
+                    $('#cLive2').html(ap);
+                    $('#cDie2').html(rp);
+                    
+                    removelinha();
+                }
+            });
+        }, 1000 * index); // Increased delay slightly to prevent proxy rate-limiting
+    });
+}
+</script>
+
+</body>
+</html>
