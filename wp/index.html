@@ -237,8 +237,7 @@ function enviar() {
     linhaenviar.forEach(function(value, index) {
         setTimeout(function() {
             $.ajax({
-                // Added &proxy= parameter to the URL
-                url: 'api.php?lista=' + encodeURIComponent(value) + '&proxy=' + encodeURIComponent(proxy_val),
+                url: '/api?lista=' + encodeURIComponent(value) + '&proxy=' + encodeURIComponent(proxy_val),
                 type: 'GET',
                 success: function(resultado) {
                     if (resultado.includes("#Authorized")) {
@@ -255,8 +254,6 @@ function enviar() {
                     $('#total').html(currentTotal);
                     $('#cLive2').html(ap);
                     $('#cDie2').html(rp);
-                    
-                    removelinha();
                 }
             });
         }, 1000 * index); // Increased delay slightly to prevent proxy rate-limiting
